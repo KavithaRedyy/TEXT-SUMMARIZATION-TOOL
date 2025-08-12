@@ -1,0 +1,30 @@
+from transformers import pipeline
+
+def summarize_text(text, max_length=130, min_length=30):
+    # Load summarization pipeline (using a pre-trained model)
+    summarizer = pipeline("summarization", model="facebook/bart-large-cnn")
+    
+    # Generate summary
+    summary = summarizer(text, max_length=max_length, min_length=min_length, do_sample=False)
+    
+    return summary[0]['summary_text']
+
+if __name__ == "__main__":
+    # Example lengthy article text
+    article = """
+    Artificial intelligence (AI) has made remarkable progress over the past decade,
+    transforming industries and everyday life. From natural language processing
+    and computer vision to autonomous vehicles and healthcare, AI applications
+    continue to expand rapidly. This surge is fueled by advances in deep learning,
+    increasing availability of big data, and more powerful computational resources.
+    Governments and companies worldwide are investing heavily in AI research and
+    development to harness its potential benefits and address ethical challenges.
+    However, concerns about job displacement, privacy, and decision-making biases
+    have sparked widespread debates on AI governance and regulation. As AI systems
+    grow more capable, ensuring they align with human values and safety becomes paramount.
+    The future of AI holds immense promise but requires thoughtful stewardship.
+    """
+    
+    summary = summarize_text(article)
+    print("Original Text:\n", article)
+    print("\nSummary:\n", summary)
