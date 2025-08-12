@@ -53,4 +53,6 @@ While the pre-trained model provides impressive results, summarization is not pe
 
 Moreover, ethical use of summarization tools requires awareness that generated summaries are approximations and may need human review in critical contexts.
 
+<img width="785" height="325" alt="Image" src="https://github.com/user-attachments/assets/b7929106-7140-4d40-aa04-c831a826c2fc" />
+
 
